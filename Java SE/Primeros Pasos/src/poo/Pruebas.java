@@ -10,6 +10,8 @@ public class Pruebas {
 
 		Empleados trabajador1 = new Empleados("Paco");
 		Empleados trabajador2 = new Empleados("Anny");
+		Empleados trabajador3 = new Empleados("Antonio");
+		Empleados trabajador4 = new Empleados("Andres");
 
 		trabajador1.cambiaSeccion("RRHH");
 
@@ -17,6 +19,8 @@ public class Pruebas {
 		
 		System.out.println(trabajador1.devuelveDatos());
 		System.out.println(trabajador2.devuelveDatos());
+		System.out.println(trabajador3.devuelveDatos());
+		System.out.println(trabajador4.devuelveDatos());
 	}
 }
 
@@ -26,10 +30,16 @@ class Empleados {
 	private final String nombre;
 	private String seccion;
 
+	// Uso de static
+	private int Id;
+	private static int IdSiguiente = 1;
+
 	// Constructor
 	public Empleados(String nombre) {
 		this.nombre = nombre;
 		this.seccion = "Administración";
+		Id = IdSiguiente;
+		IdSiguiente++;
 	}
 
 	// Metodos Set
@@ -45,7 +55,7 @@ class Empleados {
 	
 	// Metodos Get
 	public String devuelveDatos() {
-		return "El nombre es: " + nombre + " y la sección es " + seccion;
+		return "El nombre es: " + nombre + " y la sección es " + seccion + " y el Id = " + Id;
 	}
 
 }
