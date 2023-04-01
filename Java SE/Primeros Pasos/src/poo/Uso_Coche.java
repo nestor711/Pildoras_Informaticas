@@ -1,8 +1,5 @@
 package poo;
 
-//Importamos el paquete swing
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Néstor David Heredia Gutierrez (2058558-2711)
@@ -10,7 +7,7 @@ import javax.swing.JOptionPane;
 public class Uso_Coche {
 	
 	public static void main(String[] args) {
-		
+		/*
 		Coche Renault = new Coche(); //Instanciar una Clase. Ejemplar de Clase
 		Coche micoche = new Coche();
 		
@@ -32,6 +29,20 @@ public class Uso_Coche {
 		
 		System.out.println("Este Coche tiene " + Renault.getRuedas() + " ruedas.");
 		System.out.println("El largo del coche es " + Renault.getLargo());
+		*/
+		
+		Coche micoche1 = new Coche();
+		
+		micoche1.configura_asientos("Rojo");
+		
+		Furgoneta miFurgoneta1 = new Furgoneta(7, 580);
+		
+		miFurgoneta1.establece_color("azul");
+		miFurgoneta1.configura_asientos("Si");
+		miFurgoneta1.configura_climatizador("Si");
+		
+		System.out.println(micoche1.dime_datos_generales() + " " + micoche1.dime_color());
+		System.out.println(miFurgoneta1.dime_datos_generales() + " " + miFurgoneta1.dimeDatosFurgoneta());
 		
 	}
 }
