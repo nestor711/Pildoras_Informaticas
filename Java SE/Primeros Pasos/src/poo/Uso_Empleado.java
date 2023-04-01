@@ -24,7 +24,6 @@ public class Uso_Empleado {
 		System.out.println("Nombre: " + empleado2.dameNombre() + " Sueldo: " + empleado2.dameSueldo()+ " Fecha de Alta: " + empleado2.dameFechaContrato());
 		System.out.println("Nombre: " + empleado3.dameNombre() + " Sueldo: " + empleado3.dameSueldo()+ " Fecha de Alta: " + empleado3.dameFechaContrato());
 		 */
-		
 		Empleado[] misEmpleados = new Empleado[4];
 
 		misEmpleados[0] = new Empleado("Néstor Gutierrez", 85000, 1990, 12, 17);
@@ -54,7 +53,7 @@ class Empleado {
 	// Constructor Vacio
 	public Empleado() {
 	}
-	
+
 	// Constructor con Parametros
 	public Empleado(String nombre, double sueldo, int anio, int mes, int dia) {
 
@@ -85,5 +84,25 @@ class Empleado {
 	public void subeSueldo(double porcentaje) {
 		double aumento = sueldo * porcentaje / 100;
 		sueldo += aumento;
+	}
+
+}
+
+class Jefatura extends Empleado {
+
+	private double incentivo;
+
+	public Jefatura(String nombre, double sueldo, int anio, int mes, int dia) {
+
+		super(nombre, sueldo, anio, mes, dia);
+	}
+
+	public void estableceIncentivo(double b) {
+		incentivo = b;
+	}
+
+	public double dameSueldo() {
+		double sueldoJefe = super.dameSueldo();
+		return sueldoJefe + incentivo;
 	}
 }
