@@ -8,6 +8,7 @@ public class Pruebas {
 
 	public static void main(String[] args) {
 
+		//Creación de Objetos Empleados
 		Empleados trabajador1 = new Empleados("Paco");
 		Empleados trabajador2 = new Empleados("Anny");
 		Empleados trabajador3 = new Empleados("Antonio");
@@ -17,10 +18,10 @@ public class Pruebas {
 
 		//trabajador1.cambiaNombre("Néstor");
 		
-		System.out.println(trabajador1.devuelveDatos());
-		System.out.println(trabajador2.devuelveDatos());
-		System.out.println(trabajador3.devuelveDatos());
-		System.out.println(trabajador4.devuelveDatos());
+		System.out.println(trabajador1.devuelveDatos() + "\n" + trabajador2.devuelveDatos() + "\n" + trabajador3.devuelveDatos() + "\n" + trabajador4.devuelveDatos());
+		
+		// Imprimir el método static
+		System.out.println(Empleados.dameIdSiguiente());
 	}
 }
 
@@ -52,10 +53,14 @@ class Empleados {
 		this.nombre = nombre;
 	}
 	 */
-	
 	// Metodos Get
 	public String devuelveDatos() {
 		return "El nombre es: " + nombre + " y la sección es " + seccion + " y el Id = " + Id;
+	}
+
+	// Metodo static
+	public static String dameIdSiguiente() {
+		return "El IdSiguiente es: " + IdSiguiente;
 	}
 
 }
