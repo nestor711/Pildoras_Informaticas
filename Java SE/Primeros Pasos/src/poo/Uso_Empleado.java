@@ -1,6 +1,7 @@
 package poo;
 
 // Importamos el paquete util
+import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -39,10 +40,27 @@ public class Uso_Empleado {
 		Jefatura jefa_Finanzas = (Jefatura) misEmpleados[5];
 		jefa_Finanzas.estableceIncentivo(55000);
 
+		/*
+		Empleado director_comercial = new Jefatura("Sandra", 85000, 2012, 05, 05);
+
+		Comparable ejemplo = new Empleado("Elisabeth", 95000, 2011, 06, 07);
+		
+		if(director_comercial instanceof Empleado){
+			System.out.println("Es de tipo Jefatura");
+		}
+		
+		if(ejemplo instanceof Comparable){
+			System.out.println("Implementa la interfaz comparable");
+		}*/
+		
+		System.out.println(jefa_Finanzas.tomar_decisiones("Dar más dias de vacaciones a los empleados"));
+		
 		// Bucle o Ciclo for
 		for (int i = 0; i < 6; i++) {
 			misEmpleados[i].subeSueldo(5);
 		}
+
+		Arrays.sort(misEmpleados);
 
 		for (int i = 0; i < 6; i++) {
 			System.out.println("Nombre: " + misEmpleados[i].dameNombre() + " Sueldo: " + misEmpleados[i].dameSueldo() + " Fecha de Alta: " + misEmpleados[i].dameFechaContrato());
@@ -52,7 +70,7 @@ public class Uso_Empleado {
 
 }
 
-class Empleado {
+class Empleado implements Comparable {
 
 	private String nombre;
 	private double sueldo;
@@ -94,9 +112,21 @@ class Empleado {
 		sueldo += aumento;
 	}
 
+	@Override
+	public int compareTo(Object miObjeto) {
+		Empleado otroEmpleado = (Empleado) miObjeto;
+
+		if (this.sueldo < otroEmpleado.sueldo) {
+			return -1;
+		}
+		if (this.sueldo > otroEmpleado.sueldo) {
+			return 1;
+		}
+		return 0;
+	}
 }
 
-class Jefatura extends Empleado {
+class Jefatura extends Empleado implements Jefes {
 
 	private double incentivo;
 
@@ -113,12 +143,9 @@ class Jefatura extends Empleado {
 		double sueldoJefe = super.dameSueldo();
 		return sueldoJefe + incentivo;
 	}
-}
 
-class Director extends Jefatura {
-
-	public Director(String nombre, double sueldo, int anio, int mes, int dia) {
-
-		super(nombre, sueldo, anio, mes, dia);
+	@Override
+	public String tomar_decisiones(String decision) {
+		return "Un miembro de la direccion ha tomado la decision de: " + decision;
 	}
 }
