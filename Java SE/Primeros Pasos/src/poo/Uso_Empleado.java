@@ -52,9 +52,12 @@ public class Uso_Empleado {
 		if(ejemplo instanceof Comparable){
 			System.out.println("Implementa la interfaz comparable");
 		}*/
-		
 		System.out.println(jefa_Finanzas.tomar_decisiones("Dar más dias de vacaciones a los empleados"));
 		
+		System.out.println("El jefe " + jefa_Finanzas.dameNombre() + " tiene un bonus de " + jefa_Finanzas.establece_bonus(500));
+		
+		System.out.println(misEmpleados[3].dameNombre() + " tiene un bonus de: " + misEmpleados[3].establece_bonus(200));
+
 		// Bucle o Ciclo for
 		for (int i = 0; i < 6; i++) {
 			misEmpleados[i].subeSueldo(5);
@@ -70,7 +73,7 @@ public class Uso_Empleado {
 
 }
 
-class Empleado implements Comparable {
+class Empleado implements Comparable, Trabajadores {
 
 	private String nombre;
 	private double sueldo;
@@ -124,6 +127,11 @@ class Empleado implements Comparable {
 		}
 		return 0;
 	}
+
+	@Override
+	public double establece_bonus(double gratificacion) {
+		return Trabajadores.bonus_base + gratificacion;
+	}
 }
 
 class Jefatura extends Empleado implements Jefes {
@@ -147,5 +155,14 @@ class Jefatura extends Empleado implements Jefes {
 	@Override
 	public String tomar_decisiones(String decision) {
 		return "Un miembro de la direccion ha tomado la decision de: " + decision;
+	}
+
+	@Override
+	public double establece_bonus(double gratificacion) {
+
+		double prima = 2000;
+
+		return Trabajadores.bonus_base + gratificacion + prima;
+
 	}
 }
