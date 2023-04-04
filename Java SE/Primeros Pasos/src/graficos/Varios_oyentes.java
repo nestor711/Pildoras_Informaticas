@@ -91,19 +91,3 @@ class Marco_Emergente extends JFrame {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
