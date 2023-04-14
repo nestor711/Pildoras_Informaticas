@@ -1,0 +1,4 @@
+||:Applet_Multimedia
+javax.swing.JApplet
+java.awt.Graphics
+Applet_Multimedia
